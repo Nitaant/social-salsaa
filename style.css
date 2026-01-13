@@ -196,7 +196,65 @@ input:focus, select:focus, textarea:focus {
     transition: 0.2s;
 }
 .btn-submit:hover { transform: translateY(-2px); box-shadow: 0 8px 20px rgba(229, 46, 46, 0.4); }
+/* --- THE GUEST CHECK (Restored Receipt Style) --- */
+.guest-check {
+    background: #F0F5F0; /* Pale green receipt paper color */
+    border: 1px solid #ccc;
+    box-shadow: 10px 10px 0 rgba(0,0,0,0.1);
+    font-family: 'Space Mono', monospace; /* The Receipt Font */
+    padding: 30px;
+    position: relative;
+    border-radius: 0; /* Receipts are square, not round */
+    margin-bottom: 40px;
+}
 
+/* The Jagged Top Edge Pattern */
+.guest-check::before {
+    content: "";
+    position: absolute;
+    top: -10px; left: 0; width: 100%; height: 10px;
+    background: linear-gradient(135deg, transparent 33%, #F0F5F0 33%, #F0F5F0 66%, transparent 66%),
+                linear-gradient(45deg, transparent 33%, #F0F5F0 33%, #F0F5F0 66%, transparent 66%);
+    background-size: 20px 20px;
+    background-position: top;
+}
+
+/* Receipt Header Text */
+.check-header {
+    display: flex;
+    justify-content: space-between;
+    border-bottom: 2px dashed #aaa;
+    padding-bottom: 15px;
+    margin-bottom: 20px;
+    font-weight: bold;
+    font-size: 1.2rem;
+    font-family: 'Space Mono', monospace;
+}
+
+/* Input Fields (Underlines only) */
+.guest-check input, .guest-check select, .guest-check textarea {
+    background: transparent;
+    border: none;
+    border-bottom: 1px solid #aaa;
+    border-radius: 0;
+    padding: 10px 0;
+    font-family: 'Space Mono', monospace;
+    font-size: 1rem;
+    margin-bottom: 20px;
+}
+
+.guest-check input:focus, .guest-check select:focus, .guest-check textarea:focus {
+    border-bottom: 2px solid var(--brand-red);
+    outline: none;
+}
+
+.guest-check label {
+    font-family: 'Space Mono', monospace;
+    font-size: 0.85rem;
+    color: #666;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+}
 /* BRAIN FART FIX */
 .bf-container {
     background: var(--brand-black);
