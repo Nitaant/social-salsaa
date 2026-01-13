@@ -206,63 +206,66 @@ footer {
 }
 footer a { color: var(--brand-red); font-weight: bold; margin: 0 10px; }
 
-/* MOBILE */
-/* --- 📱 POLISHED MOBILE DESIGN --- */
+/* --- 📱 FINAL MOBILE FIX (ALL PAGES) --- */
 @media (max-width: 768px) {
 
-    /* 1. LAYOUT: Stack cards but give them breathing room */
-    .grid-3 {
-        grid-template-columns: 1fr !important; /* Stack vertically */
-        gap: 40px !important; /* Adds space between cards so they don't touch */
+    /* --- GLOBAL LAYOUT (Fixes Blog, Services, About) --- */
+    .grid-3, 
+    .contact-container {
+        display: flex !important;       /* Switch to Flexbox */
+        flex-direction: column;         /* Stack items vertically */
+        gap: 40px !important;           /* Space between cards */
+        width: 100% !important;
     }
 
-    /* 2. ABOUT PAGE: Keep Team Members in a 2-column grid (Looks better than stacking) */
-    /* This targets the team section specifically if it's inside a grid-3 */
-    .section .grid-3 {
-        /* If the cards are small (like team photos), let's try to fit 2 side-by-side */
-        grid-template-columns: repeat(auto-fit, minmax(150px, 1fr)) !important; 
-        gap: 20px !important;
+    /* --- BRAIN FART PAGE FIX (Was missing before!) --- */
+    .bf-container {
+        width: 90% !important;          /* Fit within the screen */
+        padding: 20px !important;
+        margin: 20px auto !important;   /* Center it */
+    }
+    .neat-textbox {
+        width: 100% !important;         /* Make the white box fit */
+        box-sizing: border-box;         /* prevent padding from breaking layout */
+    }
+    #industryInput {
+        width: 100% !important;         /* Fix the input field width */
+        box-sizing: border-box;
     }
 
-    /* 3. HERO SECTION: Clean up the big headers */
+    /* --- HERO SECTIONS (Fixes Giant Text) --- */
     .hero {
-        padding-top: 120px; /* Less empty space at top */
-        padding-bottom: 30px;
-        text-align: center; /* Center align looks better on mobile */
+        padding-top: 130px;
+        padding-bottom: 20px;
+        text-align: center;
     }
     .hero h1 { 
-        font-size: 2.5rem !important; 
-        line-height: 1.1;
-        margin-bottom: 15px; 
+        font-size: 2.2rem !important;   /* Shrink header text */
+        line-height: 1.2;
     }
     .hero p {
         font-size: 1rem !important;
-        padding: 0 15px; /* Prevents text hitting the edge of screen */
+        padding: 0 15px;
     }
 
-    /* 4. CARDS: Make them look like mobile "widgets" */
-    .card, .spicy-card {
-        padding: 25px !important; /* Less padding to save space */
-        margin-bottom: 10px;
-    }
-    
-    /* 5. SERVICES MENU: Make pricing cards distinct */
-    .service-card {
-        border-width: 2px !important; /* Thinner borders look cleaner on mobile */
-        box-shadow: 4px 4px 0 var(--brand-black) !important; /* Smaller shadow */
-    }
-
-    /* 6. NAVIGATION: Simple & Clean */
+    /* --- NAVIGATION BAR --- */
     nav {
-        padding: 15px 20px;
-        background: rgba(255, 255, 255, 0.95); /* Slight transparency */
+        padding: 10px 15px;
     }
-    .nav-links { display: none; } /* Hide desktop links */
+    .nav-links { display: none; }       /* Hide desktop menu links */
     .logo-img { height: 40px; }
 
-    /* 7. GENERAL SPACING */
+    /* --- CARD STYLING --- */
+    .card, .spicy-card, .service-card {
+        width: 100% !important;         /* Force cards to fit screen width */
+        box-sizing: border-box;         /* Ensure padding doesn't widen page */
+        margin-bottom: 10px;
+    }
+
+    /* --- GENERAL SPACING --- */
     .section {
-        padding: 40px 20px !important; /* Standard mobile padding */
+        padding: 40px 20px !important;
+        overflow-x: hidden;             /* Prevent horizontal scrolling */
     }
 }
 /* --- MENU PAGE STYLES --- */
