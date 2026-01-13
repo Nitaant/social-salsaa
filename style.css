@@ -207,25 +207,62 @@ footer {
 footer a { color: var(--brand-red); font-weight: bold; margin: 0 10px; }
 
 /* MOBILE */
+/* --- 📱 POLISHED MOBILE DESIGN --- */
 @media (max-width: 768px) {
-    /* 1. Hides the desktop menu */
-    .nav-links { display: none; }
 
-    /* 2. Shrinks the giant text */
-    .hero h1 { font-size: 2.5rem; } 
+    /* 1. LAYOUT: Stack cards but give them breathing room */
+    .grid-3 {
+        grid-template-columns: 1fr !important; /* Stack vertically */
+        gap: 40px !important; /* Adds space between cards so they don't touch */
+    }
 
-    /* 3. FIXES THE CONTACT PAGE */
-    .contact-container { grid-template-columns: 1fr; }
+    /* 2. ABOUT PAGE: Keep Team Members in a 2-column grid (Looks better than stacking) */
+    /* This targets the team section specifically if it's inside a grid-3 */
+    .section .grid-3 {
+        /* If the cards are small (like team photos), let's try to fit 2 side-by-side */
+        grid-template-columns: repeat(auto-fit, minmax(150px, 1fr)) !important; 
+        gap: 20px !important;
+    }
 
-    /* 4. FIXES THE BLOG, SERVICES & ABOUT PAGES (This was missing!) */
-    .grid-3 { 
-        grid-template-columns: 1fr !important; 
-        gap: 30px;
+    /* 3. HERO SECTION: Clean up the big headers */
+    .hero {
+        padding-top: 120px; /* Less empty space at top */
+        padding-bottom: 30px;
+        text-align: center; /* Center align looks better on mobile */
+    }
+    .hero h1 { 
+        font-size: 2.5rem !important; 
+        line-height: 1.1;
+        margin-bottom: 15px; 
+    }
+    .hero p {
+        font-size: 1rem !important;
+        padding: 0 15px; /* Prevents text hitting the edge of screen */
+    }
+
+    /* 4. CARDS: Make them look like mobile "widgets" */
+    .card, .spicy-card {
+        padding: 25px !important; /* Less padding to save space */
+        margin-bottom: 10px;
     }
     
-    /* 5. FIXES THE "MENU" LISTS so they don't look squished */
-    .menu-list li {
-        font-size: 1rem;
+    /* 5. SERVICES MENU: Make pricing cards distinct */
+    .service-card {
+        border-width: 2px !important; /* Thinner borders look cleaner on mobile */
+        box-shadow: 4px 4px 0 var(--brand-black) !important; /* Smaller shadow */
+    }
+
+    /* 6. NAVIGATION: Simple & Clean */
+    nav {
+        padding: 15px 20px;
+        background: rgba(255, 255, 255, 0.95); /* Slight transparency */
+    }
+    .nav-links { display: none; } /* Hide desktop links */
+    .logo-img { height: 40px; }
+
+    /* 7. GENERAL SPACING */
+    .section {
+        padding: 40px 20px !important; /* Standard mobile padding */
     }
 }
 /* --- MENU PAGE STYLES --- */
