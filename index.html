@@ -276,7 +276,19 @@
         }
     </style>
 </head>
-<script src="script.js"></script>
+<script>
+    function toggleMenu() {
+        // 1. Find the menu links
+        const navLinks = document.querySelector('.nav-links');
+        
+        // 2. Toggle the 'active' class (Open/Close)
+        navLinks.classList.toggle('active');
+        
+        // 3. Debugging: Log to console to prove it was clicked
+        console.log("Hamburger clicked! Menu status:", navLinks.classList);
+    }
+</script>
+</body>
 <body>
 
 <nav>
