@@ -208,9 +208,25 @@ footer a { color: var(--brand-red); font-weight: bold; margin: 0 10px; }
 
 /* MOBILE */
 @media (max-width: 768px) {
+    /* 1. Hides the desktop menu */
     .nav-links { display: none; }
-    .hero h1 { font-size: 3rem; }
+
+    /* 2. Shrinks the giant text */
+    .hero h1 { font-size: 2.5rem; } 
+
+    /* 3. FIXES THE CONTACT PAGE */
     .contact-container { grid-template-columns: 1fr; }
+
+    /* 4. FIXES THE BLOG, SERVICES & ABOUT PAGES (This was missing!) */
+    .grid-3 { 
+        grid-template-columns: 1fr !important; 
+        gap: 30px;
+    }
+    
+    /* 5. FIXES THE "MENU" LISTS so they don't look squished */
+    .menu-list li {
+        font-size: 1rem;
+    }
 }
 /* --- MENU PAGE STYLES --- */
 
@@ -528,4 +544,25 @@ body::before {
     
     /* 7. Fix Receipt/Menu Lists */
     .menu-list li { font-size: 0.9rem; }
+}
+/* ... previous styles ... */
+
+
+/* --- 📱 MOBILE REPAIR KIT --- */
+@media (max-width: 768px) {
+    
+    .section { padding: 40px 20px; }
+    
+    /* Force Grids to Stack */
+    .grid-3 {
+        grid-template-columns: 1fr !important;
+        gap: 30px;
+    }
+
+    /* Shrink Headers */
+    h1 { font-size: 2.5rem !important; }
+
+    /* Fix Nav */
+    nav { width: 95%; padding: 10px 15px; }
+    .nav-links { display: none; }
 }
