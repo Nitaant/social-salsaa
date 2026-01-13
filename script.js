@@ -128,3 +128,7 @@ document.addEventListener('DOMContentLoaded', () => {
         return data.choices[0].message.content.replace(/"/g, '');
     }
 });
+function toggleMenu() {
+    const navLinks = document.querySelector('.nav-links');
+    navLinks.classList.toggle('active');
+}
