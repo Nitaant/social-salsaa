@@ -373,7 +373,13 @@ footer a { color: var(--brand-red); font-weight: bold; margin: 0 10px; }
     /* --- 1. HAMBURGER MENU LOGIC --- */
     
     /* Show Hamburger */
-    .hamburger { display: flex; }
+    /* Show Hamburger (Force it to be visible) */
+    .hamburger { 
+        display: flex !important;   /* <--- ADD !important HERE */
+        flex-direction: column;
+        gap: 5px;
+        cursor: pointer;
+    }
 
     /* Hide Links Wrapper by Default */
     .nav-links {
