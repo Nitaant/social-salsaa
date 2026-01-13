@@ -1,0 +1,379 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Social Salsaa | Creative Media Agency</title>
+    
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;700&family=Fredoka:wght@500;700&display=swap" rel="stylesheet">
+
+    <style>
+        /* --- 1. CORE STYLES (THEME PRESERVED) --- */
+        :root {
+            --brand-red: #E52E2E;      /* Bright Fire Red */
+            --brand-cream: #FFF8E7;    /* Soft Cream for cards */
+            --brand-white: #FFFFFF;
+            --brand-black: #1a1a1a;
+            --accent-yellow: #FFD600;  /* New Accent for Brain Fart */
+        }
+
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        body {
+            font-family: 'DM Sans', sans-serif;
+            background-color: var(--brand-red);
+            color: var(--brand-white);
+            overflow-x: hidden;
+        }
+
+        h1, h2, h3, .btn-text {
+            font-family: 'Fredoka', sans-serif; /* The Bubbly Font */
+            letter-spacing: -0.5px;
+        }
+
+        /* --- 2. NAVIGATION (Updated Links) --- */
+        nav {
+            position: fixed;
+            top: 20px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 90%;
+            max-width: 850px;
+            background: var(--brand-white);
+            border-radius: 50px; 
+            padding: 10px 20px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            z-index: 1000;
+            box-shadow: 0 10px 25px rgba(0,0,0,0.15);
+        }
+
+        .logo {
+            color: var(--brand-red);
+            font-weight: 700;
+            font-size: 1.5rem;
+            text-decoration: none;
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 20px;
+            align-items: center;
+        }
+
+        .nav-links a {
+            text-decoration: none;
+            color: var(--brand-black);
+            font-weight: 700;
+            font-size: 0.9rem;
+            text-transform: uppercase;
+            transition: color 0.3s;
+        }
+
+        .nav-links a:hover { color: var(--brand-red); }
+
+        /* Special Pop for Brain Fart Link */
+        .bf-nav {
+            background: var(--accent-yellow);
+            padding: 5px 10px;
+            border-radius: 10px;
+            border: 2px solid var(--brand-black);
+            font-size: 0.8rem !important;
+            transform: rotate(-3deg);
+        }
+        .bf-nav:hover { transform: rotate(0deg) scale(1.1); }
+
+        .cta-btn {
+            background-color: var(--brand-red);
+            color: var(--brand-white);
+            padding: 10px 24px;
+            border-radius: 30px;
+            text-decoration: none;
+            font-weight: 700;
+            font-size: 0.9rem;
+            transition: transform 0.2s;
+        }
+        .cta-btn:hover { transform: scale(1.05); }
+
+        /* --- 3. HERO SECTION (Original) --- */
+        .hero {
+            min-height: 90vh;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            padding: 140px 20px 60px;
+            background: radial-gradient(circle at center, #ff4d4d 0%, #E52E2E 100%);
+        }
+
+        .hero h1 {
+            font-size: 5rem;
+            line-height: 0.95;
+            margin-bottom: 20px;
+            text-shadow: 4px 4px 0px rgba(0,0,0,0.1);
+        }
+
+        .hero p {
+            font-size: 1.3rem;
+            max-width: 600px;
+            margin-bottom: 40px;
+            font-weight: 500;
+            opacity: 0.95;
+        }
+
+        .hero-btn {
+            background-color: var(--brand-white);
+            color: var(--brand-red);
+            font-size: 1.2rem;
+            padding: 15px 40px;
+            border-radius: 50px;
+            text-decoration: none;
+            font-weight: 700;
+            box-shadow: 0 8px 0 rgba(0,0,0,0.15);
+            transition: transform 0.2s;
+            display: inline-block;
+        }
+        .hero-btn:hover { transform: translateY(-3px); }
+
+        /* Phone Visuals */
+        .hero-visuals {
+            margin-top: 50px;
+            display: flex;
+            gap: 20px;
+            justify-content: center;
+        }
+        .phone-mockup {
+            width: 200px;
+            height: 400px;
+            background: #fff;
+            border-radius: 30px;
+            border: 8px solid #1a1a1a;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: var(--brand-black);
+            font-weight: bold;
+            transform: rotate(-5deg);
+        }
+        .phone-mockup:nth-child(2) { transform: rotate(5deg); margin-top: 40px; }
+
+        /* --- 4. SCROLLING MARQUEE --- */
+        .marquee-container {
+            background-color: var(--brand-white);
+            padding: 15px 0;
+            transform: rotate(-1deg);
+            width: 105%;
+            margin-left: -2.5%;
+            border-top: 4px solid var(--brand-black);
+            border-bottom: 4px solid var(--brand-black);
+            overflow: hidden;
+            white-space: nowrap;
+        }
+        .marquee-content { display: inline-block; animation: scroll 20s linear infinite; }
+        .marquee-item { color: var(--brand-red); font-family: 'Fredoka', sans-serif; font-size: 1.5rem; font-weight: 700; margin: 0 30px; text-transform: uppercase; }
+        @keyframes scroll { 0% { transform: translateX(0); } 100% { transform: translateX(-50%); } }
+
+        /* --- 5. SERVICES (Original) --- */
+        .services { padding: 80px 20px; background-color: var(--brand-red); }
+        .section-header { text-align: center; margin-bottom: 60px; }
+        .section-header h2 { font-size: 3.5rem; margin-bottom: 10px; }
+
+        .cards-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .card {
+            background-color: var(--brand-cream);
+            color: var(--brand-black);
+            padding: 40px;
+            border-radius: 40px;
+            text-align: center;
+            transition: transform 0.3s;
+            border: 4px solid transparent;
+        }
+        .card:hover { transform: translateY(-10px); border-color: var(--brand-black); }
+        .card-icon { font-size: 3rem; margin-bottom: 20px; display: block; }
+        .card h3 { font-size: 2rem; margin-bottom: 15px; }
+        .card p { font-size: 1.1rem; line-height: 1.5; color: #444; margin-bottom: 25px; }
+        .card-btn { color: var(--brand-red); font-weight: 700; text-transform: uppercase; text-decoration: none; border-bottom: 2px solid var(--brand-red); }
+
+        /* --- 6. NEW: BRAIN FART SECTION --- */
+        .brainfart-section {
+            background-color: var(--brand-black); /* Dark contrast */
+            padding: 100px 20px;
+            text-align: center;
+        }
+        
+        .bf-box {
+            max-width: 800px;
+            margin: 0 auto;
+            border: 6px solid var(--accent-yellow);
+            border-radius: 40px;
+            padding: 60px 40px;
+            background: #222;
+            position: relative;
+        }
+        
+        /* Little decorative blob */
+        .bf-box::after {
+            content: "🧠";
+            font-size: 4rem;
+            position: absolute;
+            top: -40px;
+            right: -20px;
+            transform: rotate(15deg);
+        }
+
+        .bf-title { font-size: 3.5rem; color: var(--accent-yellow); margin-bottom: 20px; }
+        .bf-desc { color: var(--brand-white); font-size: 1.2rem; margin-bottom: 40px; }
+        
+        .bf-btn {
+            background: var(--accent-yellow);
+            color: var(--brand-black);
+            padding: 15px 40px;
+            border-radius: 50px;
+            font-size: 1.5rem;
+            font-family: 'Fredoka', sans-serif;
+            text-decoration: none;
+            display: inline-block;
+            transition: 0.2s;
+        }
+        .bf-btn:hover { transform: scale(1.1) rotate(-3deg); box-shadow: 0 0 20px var(--accent-yellow); }
+
+        /* --- 7. NEW: BLOG PREVIEW --- */
+        .blog-section { padding: 80px 20px; background: var(--brand-cream); color: var(--brand-black); }
+        
+        .blog-card {
+            background: var(--brand-white);
+            text-align: left;
+            padding: 30px;
+            border-radius: 30px;
+            border: 3px solid transparent;
+        }
+        .blog-card:hover { border-color: var(--brand-red); }
+        
+        .tag { background: var(--brand-red); color: white; padding: 5px 10px; border-radius: 10px; font-weight: bold; font-size: 0.8rem; display: inline-block; margin-bottom: 15px; }
+        .blog-card h4 { font-size: 1.5rem; margin-bottom: 10px; font-family: 'Fredoka', sans-serif; }
+        .read-link { color: var(--brand-red); font-weight: bold; text-decoration: none; font-size: 1rem; }
+
+        /* Mobile Fixes */
+        @media (max-width: 768px) {
+            .hero h1 { font-size: 3.5rem; }
+            .nav-links { display: none; }
+            .phone-mockup { width: 150px; height: 300px; }
+        }
+    </style>
+</head>
+<body>
+
+    <nav>
+    <a href="index.html" class="logo">social salsaa</a>
+    <div class="nav-links">
+        <a href="services.html">Services</a>
+        <a href="about.html">About</a> <a href="blog.html">Blog</a>
+        <a href="brainfart.html" class="bf-nav">Brain Fart 🧠</a>
+    </div>
+    <a href="contact.html" class="cta-btn">GET SPICY</a>
+</nav>
+
+    <section class="hero">
+        <h1>WE MAKE<br>BRANDS SPICY.</h1>
+        <p>Cooking up creative strategies, scroll-stopping content, and campaigns that sizzle.</p>
+        <a href="services.html" class="hero-btn">VIEW SERVICES</a>
+
+        <div class="hero-visuals">
+            <div class="phone-mockup">
+                <span>REELS 🌶️</span>
+            </div>
+            <div class="phone-mockup">
+                <span>VIRAL 🔥</span>
+            </div>
+        </div>
+    </section>
+
+    <div class="marquee-container">
+        <div class="marquee-content">
+            <span class="marquee-item">🌶️ CONTENT CREATION</span>
+            <span class="marquee-item">🔥 SOCIAL STRATEGY</span>
+            <span class="marquee-item">🥑 COMMUNITY MANAGEMENT</span>
+            <span class="marquee-item">✨ BRANDING</span>
+            <span class="marquee-item">🌶️ CONTENT CREATION</span>
+            <span class="marquee-item">🔥 SOCIAL STRATEGY</span>
+        </div>
+    </div>
+
+    <section class="services" id="menu">
+        <div class="section-header">
+            <h2>OUR SECRET SAUCE</h2>
+            <p>We don't do boring packages. We do ecosystem building.</p>
+        </div>
+
+        <div class="cards-grid">
+            <div class="card">
+                <span class="card-icon">🙂</span>
+                <h3>Strategy</h3>
+                <p>We stalk your competitors (legally) and build a roadmap that converts.</p>
+                <a href="services.html" class="card-btn">See Details</a>
+            </div>
+            <div class="card">
+                <span class="card-icon">🌶️</span>
+                <h3>Content</h3>
+                <p>Reels, TikToks, and graphics that actually stop the scroll.</p>
+                <a href="services.html" class="card-btn">See Details</a>
+            </div>
+            <div class="card">
+                <span class="card-icon">🔥</span>
+                <h3>Management</h3>
+                <p>We handle the posting and the trolls so you can sleep.</p>
+                <a href="services.html" class="card-btn">See Details</a>
+            </div>
+        </div>
+    </section>
+
+    <section class="brainfart-section">
+        <div class="bf-box">
+            <h2 class="bf-title">NO IDEAS? 🧠💨</h2>
+            <p class="bf-desc">Stuck creatively? Try our unhinged marketing idea generator. <br>Warning: It's chaotic.</p>
+            <a href="brainfart.html" class="bf-btn">OPEN BRAIN FART</a>
+        </div>
+    </section>
+
+    <section class="blog-section">
+        <div class="section-header">
+            <h2 style="color: var(--brand-red);">FRESH FROM THE KITCHEN</h2>
+            <p>Spicy takes on marketing trends.</p>
+        </div>
+
+        <div class="cards-grid">
+            <div class="blog-card">
+                <span class="tag">TRENDS</span>
+                <h4>Is the 'Clean Girl' aesthetic dead?</h4>
+                <a href="blog.html" class="read-link">Read More &rarr;</a>
+            </div>
+            <div class="blog-card">
+                <span class="tag">STRATEGY</span>
+                <h4>Why your Reels are flopping</h4>
+                <a href="blog.html" class="read-link">Read More &rarr;</a>
+            </div>
+            <div class="blog-card">
+                <span class="tag">AGENCY LIFE</span>
+                <h4>We let an intern run our Twitter</h4>
+                <a href="blog.html" class="read-link">Read More &rarr;</a>
+            </div>
+        </div>
+    </section>
+
+</body>
+</html>
