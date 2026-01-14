@@ -100,7 +100,7 @@ nav {
 
 /* HAMBURGER ICON (Desktop Default: Hidden) */
 .hamburger {
-    display: none;
+    display: none;  /* We removed !important so Mobile can override it later */
     flex-direction: column;
     gap: 5px;
     cursor: pointer;
@@ -374,12 +374,18 @@ footer a { color: var(--brand-red); font-weight: bold; margin: 0 10px; }
     
     /* Show Hamburger */
     /* Show Hamburger (Force it to be visible) */
+   @media (max-width: 768px) {
+    /* ... other styles ... */
+
     .hamburger { 
-        display: flex !important;   /* <--- ADD !important HERE */
-        flex-direction: column;
-        gap: 5px;
-        cursor: pointer;
+        display: flex !important;  /* Keep this strong! */
+        z-index: 2000;             /* Ensure it sits on top of everything */
     }
+    
+    .hamburger span {
+        background-color: black !important; /* Force it Black (Visibility Check) */
+    }
+}
 
     /* Hide Links Wrapper by Default */
     .nav-links {
